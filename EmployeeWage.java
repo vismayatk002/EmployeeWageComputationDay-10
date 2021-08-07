@@ -1,4 +1,4 @@
-public class EmployeeWage{
+public class EmployeeWage implements EmpWage{
 
     static final int IS_PRESENT = 1;
     static final int FULL_TIME_HR = 16;
@@ -13,7 +13,7 @@ public class EmployeeWage{
             return false;
         }
     }
-    public void calcMonthlyWage(CompanyEmpWage[] companyArr){
+    public void empWageBuilder(CompanyEmpWage[] companyArr){
         
         for(int i=0; i<companyArr.length; i++){
 

@@ -12,7 +12,7 @@ public class EmployeeWageMain{
         companyArr[1] = Infosys;
         companyArr[2] = Wipro;
         EmployeeWage emp = new EmployeeWage();
-        emp.calcMonthlyWage(companyArr);
+        emp.empWageBuilder(companyArr);
         System.out.println("\nEmployee wage of " + TCS.company + "'s Employee : " + TCS.monthlyWage);
         System.out.println("\nEmployee wage of " + Infosys.company + "'s Employee : " + Infosys.monthlyWage);
         System.out.println("\nEmployee wage of " + Wipro.company + "'s Employee : " + Wipro.monthlyWage);
