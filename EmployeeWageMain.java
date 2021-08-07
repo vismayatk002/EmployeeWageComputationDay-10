@@ -40,6 +40,7 @@ public class EmployeeWageMain{
             for(int day=1; day<=WORKING_DAYS; day++){
                 int empCheck = (int)(Math.random() * 10) % 2;
                 if(checkIsPresent(empCheck)){
+                    totalAttendance++;
                     int empType = (int)(Math.random() * 10) % 2;
                     dailyWage = calcDailyEmpWage(empType);   
                     monthlyWage += dailyWage;
