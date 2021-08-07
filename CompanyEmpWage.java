@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class CompanyEmpWage{
 
     int monthlyWage = 0;
@@ -7,6 +9,8 @@ public class CompanyEmpWage{
     int workingDays;
     int wagePerHr;
     String company;
+    
+    ArrayList<Integer> dailyWage = new ArrayList<Integer>();
 
     public CompanyEmpWage(String company, int wagePerHr, int workingDays, int companyHr){
 

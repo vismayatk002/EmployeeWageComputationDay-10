@@ -18,7 +18,7 @@ public class EmployeeWage implements EmpWage{
     }
     public void empWageBuilder(ArrayList<CompanyEmpWage> companyArr){
         
-
+        int dailyEmpWage = 0;
         Iterator itr = companyArr.iterator();
         while (itr.hasNext()){
             CompanyEmpWage wageObject = (CompanyEmpWage)itr.next();
@@ -31,14 +31,16 @@ public class EmployeeWage implements EmpWage{
                         switch(empType){
                             case  FULL_TIME :
                                 wageObject.empTotalHr += FULL_TIME_HR;
-                                wageObject.monthlyWage += wageObject.wagePerHr * FULL_TIME_HR;
+                                dailyEmpWage = wageObject.wagePerHr * FULL_TIME_HR;
                                 break;
                             default :
                                 wageObject.empTotalHr += PART_TIME_HR; 
-                                wageObject.monthlyWage += wageObject.wagePerHr * PART_TIME_HR;
+                                dailyEmpWage = wageObject.wagePerHr * PART_TIME_HR;
                         }
+                        wageObject.monthlyWage += dailyEmpWage;
+                        wageObject.dailyWage.add(dailyEmpWage);
                     }
-                }
+                } 
             }
         }
     }
