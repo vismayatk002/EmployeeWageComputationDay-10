@@ -18,13 +18,14 @@ public class EmployeeWageMain{
     }
     public void calcDailyEmpWage(int empType){
         
-        if(empType == FULL_TIME){
-            dailyEmpWage =  WAGE_PER_HR * FULL_TIME_HR;
-            System.out.println("Full time Daily Employee Wage :" + dailyEmpWage);
-        }
-        else{
-            dailyEmpWage =  WAGE_PER_HR * PART_TIME_HR;
-            System.out.println("Part time Daily Employee Wage :" + (dailyEmpWage));
+        switch(empType){
+            case FULL_TIME :
+                dailyEmpWage =  WAGE_PER_HR * FULL_TIME_HR;
+                System.out.println("Full time Daily Employee Wage :" + dailyEmpWage);
+            break;
+            default :
+                dailyEmpWage =  WAGE_PER_HR * PART_TIME_HR;
+                System.out.println("Part time Daily Employee Wage :" + (dailyEmpWage));
         }
     }
     public static void main(String[] args){
