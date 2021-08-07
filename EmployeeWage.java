@@ -12,7 +12,15 @@ public class EmployeeWage{
     int totalAttendance = 0;
     int workingDays;
     int wagePerHr;
+    String company;
 
+    public EmployeeWage(String company, int wagePerHr, int workingDays, int companyHr){
+
+        this.company = company;
+        this.wagePerHr = wagePerHr;
+        this.workingDays = workingDays;
+        this.companyHr = companyHr;
+    }
     public boolean checkIsPresent(double empCheck){
         if(empCheck == IS_PRESENT){
             return true;
@@ -21,7 +29,7 @@ public class EmployeeWage{
             return false;
         }
     }
-    public int calcDailyEmpWage(int empType){
+    public int calcDailyWage(int empType){
         
         switch(empType){
             case  FULL_TIME :
@@ -34,7 +42,7 @@ public class EmployeeWage{
         }
         return dailyEmpWage;
     }
-    public void calcMonthlyWage(String company, int wagePerHr, int workingDays, int companyHr){
+    public int calcMonthlyWage(){
         
         this.wagePerHr = wagePerHr;
         this.workingDays = workingDays;
@@ -45,11 +53,11 @@ public class EmployeeWage{
                 int empCheck = (int)(Math.random() * 10) % 2;
                 if(checkIsPresent(empCheck)){
                     int empType = (int)(Math.random() * 10) % 2;
-                    dailyWage = calcDailyEmpWage(empType);   
+                    dailyWage = calcDailyWage(empType);   
                     monthlyWage += dailyWage;
                 }
             }
         }
-        System.out.println("\nMonthly wage of " + company + "'s Employee : " + monthlyWage);
+        return monthlyWage;
     }
 }
