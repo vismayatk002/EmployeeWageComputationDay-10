@@ -2,11 +2,14 @@ public class EmployeeWageMain{
 
     static final int IS_PRESENT = 1;
     static final int WAGE_PER_HR = 20;
+    static final int WORKING_DAYS = 20;
     static final int FULL_TIME_HR = 16;
     static final int PART_TIME_HR = 8;
     static final int FULL_TIME = 1;
+
     
     int dailyEmpWage = 0;
+    int monthlyWage = 0;
 
     public boolean checkIsPresent(double empCheck){
         if(empCheck == IS_PRESENT){
@@ -16,28 +19,33 @@ public class EmployeeWageMain{
             return false;
         }
     }
-    public void calcDailyEmpWage(int empType){
+    public int calcDailyEmpWage(int empType){
         
         switch(empType){
             case FULL_TIME :
                 dailyEmpWage =  WAGE_PER_HR * FULL_TIME_HR;
-                System.out.println("Full time Daily Employee Wage :" + dailyEmpWage);
             break;
             default :
                 dailyEmpWage =  WAGE_PER_HR * PART_TIME_HR;
-                System.out.println("Part time Daily Employee Wage :" + (dailyEmpWage));
         }
+        return dailyEmpWage;
+    }
+    public int calcMonthlyWage(){
+        
+        int dailyWage = 0;
+        for(int day=1; day<=WORKING_DAYS; day++){
+            int empCheck = (int)(Math.random() * 10) % 2;
+            if(checkIsPresent(empCheck)){    
+                int empType = (int)(Math.random() * 10) % 2;
+                dailyWage = calcDailyEmpWage(empType);   
+                monthlyWage += dailyWage;
+            }
+        }
+        return monthlyWage;
     }
     public static void main(String[] args){
     
         EmployeeWageMain emp = new EmployeeWageMain();
-        int empCheck = (int)(Math.random() * 10) % 2;
-        int empType = (int)(Math.random() * 10) % 2;
-        if(emp.checkIsPresent(empCheck)){
-            emp.calcDailyEmpWage(empType);
-        }
-        else{
-            System.out.println("Employee is absent");
-        }
+        System.out.println("Monthly wage :" + emp.calcMonthlyWage());
     }
 }
