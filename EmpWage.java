@@ -1,4 +1,6 @@
+import java.util.ArrayList;
+
 interface EmpWage{
 
-    void empWageBuilder(CompanyEmpWage[] companyArr);
+    void empWageBuilder(ArrayList<CompanyEmpWage> companyArr);
 }

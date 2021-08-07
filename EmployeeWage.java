@@ -1,3 +1,6 @@
+import java.util.Iterator;
+import java.util.ArrayList;
+
 public class EmployeeWage implements EmpWage{
 
     static final int IS_PRESENT = 1;
@@ -13,24 +16,26 @@ public class EmployeeWage implements EmpWage{
             return false;
         }
     }
-    public void empWageBuilder(CompanyEmpWage[] companyArr){
+    public void empWageBuilder(ArrayList<CompanyEmpWage> companyArr){
         
-        for(int i=0; i<companyArr.length; i++){
 
-            while(companyArr[i].totalAttendance <=companyArr[i].workingDays && companyArr[i].empTotalHr <=companyArr[i].companyHr){
-                for(int day=1; day<=companyArr[i].workingDays; day++){
+        Iterator itr = companyArr.iterator();
+        while (itr.hasNext()){
+            CompanyEmpWage wageObject = (CompanyEmpWage)itr.next();
+            while(wageObject.totalAttendance <=wageObject.workingDays && wageObject.empTotalHr <=wageObject.companyHr){
+                for(int day=1; day<=wageObject.workingDays; day++){
                     int empCheck = (int)(Math.random() * 10) % 2;
                     if(checkIsPresent(empCheck)){
-                        companyArr[i].totalAttendance++;
+                        wageObject.totalAttendance++;
                         int empType = (int)(Math.random() * 10) % 2;
                         switch(empType){
                             case  FULL_TIME :
-                                companyArr[i].empTotalHr += FULL_TIME_HR;
-                                companyArr[i].monthlyWage += companyArr[i].wagePerHr * FULL_TIME_HR;
+                                wageObject.empTotalHr += FULL_TIME_HR;
+                                wageObject.monthlyWage += wageObject.wagePerHr * FULL_TIME_HR;
                                 break;
                             default :
-                                companyArr[i].empTotalHr += PART_TIME_HR; 
-                                companyArr[i].monthlyWage += companyArr[i].wagePerHr * PART_TIME_HR;
+                                wageObject.empTotalHr += PART_TIME_HR; 
+                                wageObject.monthlyWage += wageObject.wagePerHr * PART_TIME_HR;
                         }
                     }
                 }
