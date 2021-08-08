@@ -10,8 +10,10 @@ public class CompanyEmpWage{
     int wagePerHr;
     String company;
     
+    //declaration of ArrayList
     ArrayList<Integer> dailyWage = new ArrayList<Integer>();
 
+    //constructor
     public CompanyEmpWage(String company, int wagePerHr, int workingDays, int companyHr){
 
         this.company = company;

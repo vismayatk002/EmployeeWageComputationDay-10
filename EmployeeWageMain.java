@@ -14,11 +14,13 @@ public class EmployeeWageMain{
         companyArr.add(Infosys);
         companyArr.add(Wipro);
         EmployeeWage emp = new EmployeeWage();
-        emp.empWageBuilder(companyArr);
-        System.out.println("\nEmployee wage of " + TCS.company + "'s Employee : " + TCS.monthlyWage);
-        System.out.println("\nEmployee wage of " + Infosys.company + "'s Employee : " + Infosys.monthlyWage);
-        System.out.println("\nEmployee wage of " + Wipro.company + "'s Employee : " + Wipro.monthlyWage);
+        emp.calcMonthlyWage(companyArr);
+        System.out.println("\nEmployee wage of " + TCS.company + "company's Employee : " + TCS.monthlyWage);
+        System.out.println("\nEmployee wage of " + Infosys.company + "company's Employee : " + Infosys.monthlyWage);
+        System.out.println("\nEmployee wage of " + Wipro.company + "company's Employee : " + Wipro.monthlyWage);
         
-        System.out.println("\nDaily wages of " + TCS.company + "'s Employee : " + TCS.dailyWage);
+        System.out.println("\nDaily wages of " + TCS.company + "company's Employee : " + TCS.dailyWage);
+        
+        System.out.println("\nTotal Wage of TCS company : " + emp.getCompanyEmpWage("TCS"));
     }
 }
